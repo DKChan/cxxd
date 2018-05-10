@@ -2,6 +2,7 @@ from server import ServiceId
 from server import ServerRequestId
 from services.source_code_model_service import SourceCodeModelSubServiceId
 from services.source_code_model.indexer.clang_indexer import SourceCodeModelIndexerRequestId
+from services.source_code_model.auto_completion.auto_completion import SourceCodeModelAutoCompletionRequestId
 
 #
 # Server API
@@ -179,4 +180,7 @@ def _source_code_model_request(handle, source_code_model_service_id, *source_cod
 
 def _indexer_request(handle, indexer_action_id, *args):
     _source_code_model_request(handle, SourceCodeModelSubServiceId.INDEXER, indexer_action_id, *args)
+
+def _auto_completion_request(handle, auto_completion_action_id, *args):
+    _source_code_model_request(handle, SourceCodeModelSubServiceId.AUTO_COMPLETION, auto_completion_action_id, *args)
 
